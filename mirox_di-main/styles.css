@@ -1,0 +1,1243 @@
+@font-face {
+    font-family: 'Firs700';
+    src: url('Fonts/Firs700.woff2') format('woff2'),
+         url('Fonts/Firs700.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Firs400';
+    src: url('Fonts/Firs400.woff2') format('woff2'),
+         url('Fonts/Firs400.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --accent-color: #E30613;
+    --main-color: black;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Firs400', sans-serif;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    z-index: 1001;
+}
+
+.logo {
+    color: #000;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-family: 'Firs700', sans-serif;
+    cursor: pointer;
+}
+
+.logo-icon {
+    color: #E30613;
+    margin-right: 10px;
+}
+
+.logo-icon img {
+    width: 52px;
+    height: auto;
+    margin-right: 4px;
+    display: block;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+    font-family: 'Firs700', sans-serif;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #E30613;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.digital-service {
+    background-color: #E30613;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Firs700', sans-serif;
+}
+
+.hero {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.video-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    max-width: 50%;
+    padding: 20px;
+    border-radius: 15px;
+    z-index: 3;
+    background: transparent;
+    transition: background 0.5s ease;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: 'Firs700', sans-serif;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #fff;
+    margin: 20px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    font-family: 'Firs400', sans-serif;
+}
+
+.company-btn {
+    background-color: #E30613;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 3;
+    font-family: 'Firs700', sans-serif;
+}
+
+.techno-container {
+    position: absolute;
+    top: 450px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.heading {
+    font-size:  10vw;
+    line-height: 8rem;
+    height: 8rem;
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--accent-color);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition: transform 0.3s;
+    font-family: 'Firs700', sans-serif;
+}
+
+.heading:first-child {
+    color: var(--accent-color);
+}
+
+.experience-card {
+    position: absolute;
+    top: 50px;
+    right: 40px;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    height: 250px;
+    box-sizing: border-box;
+    z-index: 3;
+    transition: background 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.experience-card .slide-content {
+    min-height: 120px;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(0);
+    overflow: hidden;
+}
+
+.experience-card .slide-content.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.experience-card .slide-content h2 {
+    font-size: 48px;
+    margin: 0 0 10px;
+    font-family: 'Firs700', sans-serif;
+}
+
+.experience-card .slide-content p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+    font-family: 'Firs400', sans-serif;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.slider .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #666;
+    border-radius: 50%;
+    margin: 0 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.slider .dot:hover {
+    background-color: #999;
+}
+
+.slider .active-dot {
+    background-color: #E30613;
+    transform: scale(1.3);
+}
+
+.arrows {
+    font-size: 14px;
+    color: #fff;
+    font-family: 'Firs400', sans-serif;
+}
+
+.solutions {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+    text-align: left;
+}
+
+.solutions .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.solutions h2 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #222;
+    font-family: 'Firs700', sans-serif;
+}
+
+.solutions p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    font-family: 'Firs400', sans-serif;
+}
+
+.products-services {
+    background-color: #fff;
+    padding: 60px 0;
+}
+
+.products-services .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    gap: 40px;
+}
+
+.product,
+.service {
+    width: 48%;
+    background-color: #e30613;
+    color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.product h3,
+.service h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: 'Firs700', sans-serif;
+}
+
+.product ul,
+.service ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product li,
+.service li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-family: 'Firs400', sans-serif;
+}
+
+.more-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 3px;
+    font-family: 'Firs400', sans-serif;
+}
+
+.advantages {
+    background-color: #111;
+    color: #fff;
+    padding: 60px 20px;
+}
+
+.advantages .container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.advantages h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Firs700', sans-serif;
+}
+
+.advantages-grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.advantage {
+    background-color: #333;
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 23%;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    cursor: default;
+    min-height: 300px;
+}
+
+.advantage:hover {
+    transform: translateY(-8px);
+}
+
+.advantage h4 {
+    font-size: 48px;
+    margin: 0 0 15px 0;
+    transition: transform 0.3s ease;
+    color: #E30613;
+    font-family: 'Firs700', sans-serif;
+}
+
+.advantage:hover h4 {
+    transform: scale(1.3);
+}
+
+.advantage h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    font-family: 'Firs700', sans-serif;
+}
+
+.advantage p {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Firs400', sans-serif;
+}
+
+.contacts {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 60px 20px;
+}
+
+.contacts .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contacts h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #222;
+    font-family: 'Firs700', sans-serif;
+}
+
+.contacts-info {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contacts-info h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #222;
+    font-family: 'Firs700', sans-serif;
+}
+
+.contacts-info a {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #555;
+    font-family: 'Firs400', sans-serif;
+    text-decoration: none;
+}
+
+.contacts-info a:hover {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #000000;
+    font-family: 'Firs400', sans-serif;
+}
+
+.contact-map {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.contact-map h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #222;
+    font-family: 'Firs700', sans-serif;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 400px;
+    border: 0;
+    border-radius: 8px;
+}
+
+footer {
+    background: #111;
+    color: #fff;
+    padding: 40px 0 20px 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-family: 'Firs700', sans-serif;
+}
+
+.footer-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: #fff;
+}
+
+.footer-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-contacts p,
+.footer-contacts a {
+    font-family: 'Firs400', sans-serif;
+}
+
+.footer-contacts a {
+    color: #bdb8b8;
+    text-decoration: none;
+}
+
+.footer-contacts a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: right;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s;
+    font-family: 'Firs400', sans-serif;
+}
+
+.footer-links a:hover {
+    color: #E30613;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 20px auto 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #888;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-family: 'Firs400', sans-serif;
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 1002; /* Увеличиваем z-index для видимости */
+}
+
+.burger span {
+    width: 100%;
+    height: 3px;
+    background-color: #222;
+    border-radius: 2px;
+    transition: all 0.3s linear;
+    position: relative;
+}
+
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 7px;
+    position: relative;
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: -7px;
+    position: relative;
+}
+
+.choosed {
+    color: #E30613 !important;
+}
+
+.company-info {
+    background-color: #f9f9f9;
+    padding: 10px 0;
+}
+
+.company-info .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 20px;
+}
+
+.company-description {
+    width: 45%;
+}
+
+.company-description h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.company-description p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.company-policy {
+    width: 90%;
+}
+
+
+.company-policy h1 {
+    font-size: 56px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.company-policy p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+.company-principles {
+    width: 45%;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.company-principles h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.principle-card {
+    background-color: #fff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.principle-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.principle-card h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #222;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.principle-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff4d4d, #f06d06);
+    border-radius: 3px;
+}
+
+.principle-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.principle-card p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Мобильная и планшетная версии */
+@media (max-width: 1024px) {
+    header {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        padding: 15px 0;
+        z-index: 1000;
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    nav a {
+        color: #222;
+        font-size: 18px;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+        margin: 0;
+        text-align: center;
+    }
+
+    .digital-service {
+        width: 100%;
+        margin-top: 15px;
+        font-size: 16px;
+    }
+
+    /* Усиление стилей для бургера */
+    header .burger {
+        display: flex !important; /* Гарантируем видимость */
+        margin-left: auto;
+        z-index: 1002;
+    }
+
+    .hero-content {
+        top: 1vh;
+        left: 20px;
+        max-width: 80%;
+        padding: 1vh;
+        
+    }
+
+    .hero-content h1 {
+        font-size: 6vw;
+    }
+
+    .hero-content p {
+        font-size: 4vw;
+    }
+
+    .techno-container {
+        top: 60vh;
+        z-index: 1;
+        
+    }
+
+    .heading {
+        font-size:  10vw;
+        line-height: 3.5rem;
+        height: 3.5rem;
+    }
+
+    /* Скрытие слайдера */
+    .experience-card {
+        display: none;
+    }
+
+    /* Замена видео на JPG */
+    .background-video {
+        display: none;
+    }
+
+    .video-container {
+        height: 100vh;
+        background-image: url('Resource/home.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* Убираем пространство между картинкой и .solutions */
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 0;
+        overflow: visible;
+    }
+
+    .solutions {
+        margin-top: 0;
+        z-index: 2;
+        position: relative;
+    }
+
+    .solutions .container {
+        padding: 0 10px;
+        width: 85%;
+    }
+
+    .solutions h2 {
+        font-size: 5vw;
+        text-align: center;
+    }
+
+    .solutions p {
+        font-size: 3vw;
+        text-align: center;
+    }
+
+    .products-services .container {
+        flex-direction: column;
+        padding: 0 15px;
+        gap: 20px;
+    }
+
+    .product,
+    .service {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+        padding: 20px 15px;
+        box-sizing: border-box;
+    }
+
+    .product h3,
+    .service h3 {
+        font-size: 22px;
+    }
+
+    .product ul li,
+    .service li {
+        font-size: 14px;
+    }
+
+    .more-link {
+        font-size: 14px;
+    }
+
+    .advantages .container {
+        padding: 0 10px;
+    }
+
+    .advantages-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .advantage {
+        width: 100%;
+        min-height: auto;
+        padding: 25px 20px;
+    }
+
+    .advantage h4 {
+        font-size: 36px;
+    }
+
+    .advantage h3 {
+        font-size: 20px;
+    }
+
+    .advantage p {
+        font-size: 14px;
+    }
+
+    .contacts .container {
+        padding: 0 10px;
+    }
+
+    .contacts-info,
+    .contact-map {
+        padding: 20px;
+    }
+    .contact-map
+    {
+        height: 42vh;
+    }
+
+    .contacts-info h3,
+    .contact-map h3 {
+        font-size: 2vh;
+    }
+
+    .contacts-info p {
+        font-size: 14px;
+    }
+
+    .contact-map iframe {
+        height: 30vh;
+        
+    }
+    #map_roads {
+        height: 20vh;
+    }
+    #map {
+        height: 20vh;
+    }
+    
+
+    /* Выравнивание подвала по левой стороне */
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 15px;
+    }
+
+    .footer-logo {
+        margin-bottom: 20px;
+    }
+
+    .footer-contacts {
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer-links a {
+        font-size: 14px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 15px;
+    }
+
+    .footer-bottom p {
+        margin-bottom: 10px;
+    }
+
+    
+
+    .company-info .container {
+        flex-direction: column;
+        padding: 0 15px;
+    }
+    .company-description {
+        width: 95%;
+        margin-bottom: 20px;
+    }
+
+    .company-description h1 {
+        font-size: 5vh;
+    }
+
+    .company-description p {
+        font-size: 2vh;
+    }
+
+    .company-policy {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .company-policy h1 {
+        font-size: 7vw;
+    }
+
+    .company-policy p {
+        font-size: 2vh;
+    }
+
+    .company-principles {
+        width: 95%;
+        padding: 15px;
+        align-self: center;
+    }
+
+    .company-principles h2 {
+        font-size: 4vh;
+    }
+
+    .principle-card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .principle-card h2 {
+        font-size: 3vh;
+    }
+
+    .principle-card p {
+        font-size: 2vh;
+    }
+
+    .principle-card img {
+        margin-top: 1vh;
+        width: 5vh;
+        height: 5vh;
+    }
+}
+
+#map {
+    height: 30vh;
+    width: 100%;
+}
+
+#map_roads {
+    height: 30vh; /* высота 20% от высоты окна */
+    width: 100%;  /* желательно явно указать ширину */
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none; /* Убираем !important */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    overflow: auto;
+}
+
+.modal.visible {
+    display: flex !important; /* Используем класс для показа */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: #222;
+    z-index: 10000;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Остальные стили остаются без изменений */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+    z-index: 10005;
+}
+
+.close-btn:hover {
+    color: #E30613;
+}
+
+.modal-content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: 'Firs700', sans-serif;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-family: 'Firs400', sans-serif;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Firs400', sans-serif;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-group input {
+    width: auto;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    color: #555;
+    font-family: 'Firs400', sans-serif;
+}
+
+.checkbox-group label a {
+    color: #E30613;
+    text-decoration: none;
+}
+
+.checkbox-group label a:hover {
+    text-decoration: underline;
+}
+
+.submit-btn {
+    background-color: #E30613;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Firs700', sans-serif;
+    width: 100%;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background-color: #c50511;
+}
+
+#successMessage {
+    text-align: center;
+}
+
+#successMessage p {
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 20px;
+    font-family: 'Firs400', sans-serif;
+}
+
+/* Мобильная и планшетная версии */
+@media (max-width: 1024px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .modal-content h2 {
+        font-size: 24px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .checkbox-group label {
+        font-size: 12px;
+    }
+
+    .submit-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+
+

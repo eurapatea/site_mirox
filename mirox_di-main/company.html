@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании - МИРОКС-ДИ</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="company.js"></script>
+    <script src="burger.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <span class="logo-icon" onclick="window.location.href='index.html'">
+                <img src="Resource/logo.png" alt="Логотип" />
+            </span>
+            <span onclick="window.location.href='index.html'">МИРОКС-ДИ</span>
+        </div>
+        <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="company.html" class="choosed">О КОМПАНИИ</a>
+            <a href="index.html#services">УСЛУГИ</a>
+            <a href="index.html#contacts">КОНТАКТЫ</a>
+        </nav>
+        <button class="digital-service">ЦИФРОВЫЕ СЕРВИСЫ</button>
+    </header>
+
+    <section class="company-info">
+        <div class="container">
+            <div class="company-description">
+                <h1>КОМПАНИЯ<br>МИРОКС-ДИ</h1>
+                <p>В условиях интенсивной эксплуатации железнодорожного транспорта ключевое значение имеет качество и надежность комплектующих.</p>
+                <p>Наша компания занимается поставками высокотехнологичных компонентов для подвижного состава, включая колесные пары, надрессорные балки, поглощающие аппараты и боковые рамы, обеспечивая безопасность и долговечность эксплуатации.</p>
+            </div>
+            <div class="company-principles">
+                <div>
+                    <h2>Наши принципы</h2>
+                    <div class="ap-list">
+                        <div class="principle-card">
+                            <img src="Resource/1.png">
+                            <h2>Качество</h2>
+                            <p>Соответствие требованиям ГОСТ, ТУ, международным нормам</p>
+                        </div>
+                        <div class="principle-card">
+                            <img src="Resource/2.png">
+                            <h2>Гибкость</h2>
+                            <p>Гибкие условия поставок (опт, розница, под заказ)</p>
+                        </div>
+                        <div class="principle-card">
+                            <img src="Resource/3.png">
+                            <h2>Поддержка</h2>
+                            <p>Техническая поддержка и консультации специалистов</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="Resource/logo.png" alt="Логотип" />
+                <span>МИРОКС-ДИ</span>
+            </div>
+            <div class="footer-contacts">
+                <a href="tel: +79859316000">+7 (985) 931-60-00</a>
+                <a href="mailto: info@miroxdi.com">info@miroxdi.com</a>
+                <a id="address" data-address="Россия, 193231, Санкт-Петербург, ул Кржижановского, 3к5литА, кв 89">
+                    Россия, 193231, город Санкт-Петербург, ул Кржижановского, д. 3 к. 5 литера А, кв. 89
+                </a>            
+            </div>
+            <div class="footer-links">
+                <a href="company.html">О компании</a>
+                <a href="index.html#services">Услуги</a>
+                <a href="index.html#contacts">Контакты</a>
+                <a href="policy.html">Политика конфиденциальности</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 МИРОКС-ДИ</p>
+            
+        </div>
+    </footer>
+</body>
+
+</html>
